@@ -28,49 +28,49 @@ Beide Wege haben Vorteile. In Kalifornien kann High-School-Sport ein tolles Geme
         id: "soccer-q1",
         type: "single",
         prompt: "Wo lebt Noah?",
-        options: ["In Kalifornien", "In München", "In Japan", "In Hamburg"],
+        options: ["In Kalifornien", "In Deutschland", "In der Nähe von Lukas", "In einer Stadt mit einem Profiverein"],
         answer: "In Kalifornien"
       },
       {
         id: "soccer-q2",
         type: "multi",
         prompt: "Was kann bei Clubteams in Kalifornien teuer sein?",
-        options: ["Beiträge", "Hotels", "Trikots", "Schulbücher"],
+        options: ["Beiträge", "Hotels", "Trikots", "Stützpunkttraining"],
         answer: "Beiträge; Hotels; Trikots"
       },
       {
         id: "soccer-q3",
         type: "single",
         prompt: "Was bedeutet ein Tryout?",
-        options: ["Trainer wählen Spieler aus", "Man schreibt einen Test", "Man kauft neue Schuhe", "Man fährt mit der U-Bahn"],
-        answer: "Trainer wählen Spieler aus"
+        options: ["Trainer wählen Spieler nach einem Training aus", "Spieler trainieren zusätzlich in einem DFB-Stützpunkt", "Ein Spieler wechselt automatisch in ein Profiteam", "Eltern entscheiden allein über die Mannschaft"],
+        answer: "Trainer wählen Spieler nach einem Training aus"
       },
       {
         id: "soccer-q4",
         type: "single",
         prompt: "Was ist in Deutschland meistens wichtiger für Fußball als die Schule?",
-        options: ["Der Verein", "Der Bus", "Das Museum", "Der YouTube-Kanal"],
+        options: ["Der Verein", "Die High-School-Mannschaft", "Das Schulturnier", "Die Fahrt zu Turnieren"],
         answer: "Der Verein"
       },
       {
         id: "soccer-q5",
         type: "multi",
         prompt: "Welche Fragen stellt sich Lukas bei der Vereinswahl?",
-        options: ["Ist der Verein in der Nähe?", "Gibt es gute Trainer?", "Spiele ich genug?", "Wie groß ist die Schulcafeteria?"],
+        options: ["Ist der Verein in der Nähe?", "Gibt es gute Trainer?", "Spiele ich genug?", "Gibt es teure Hotelreisen?"],
         answer: "Ist der Verein in der Nähe?; Gibt es gute Trainer?; Spiele ich genug?"
       },
       {
         id: "soccer-q6",
         type: "single",
         prompt: "Wann spielt Lukas sein Punktspiel?",
-        options: ["Am Samstag", "Am Montagmorgen", "In den Sommerferien", "Jeden Tag in der Schule"],
+        options: ["Am Samstag", "Nach jedem Sportunterricht", "Bei jedem High-School-Spiel", "Während der Tryouts"],
         answer: "Am Samstag"
       },
       {
         id: "soccer-q7",
         type: "single",
         prompt: "Was brauchen junge Spieler laut Text in beiden Ländern?",
-        options: ["Gute Trainer und Geduld", "Nur teure Schuhe", "Immer denselben Verein", "Keine Unterstützung"],
+        options: ["Gute Trainer und Geduld", "Einen Profiverein ab dem ersten Jahr", "Möglichst viel Druck von außen", "Nur Spiele gegen Schulen"],
         answer: "Gute Trainer und Geduld"
       },
       {
@@ -112,49 +112,49 @@ Für ihr letztes Video am Abend probiert Mia Käsespätzle. Sie findet das Essen
         id: "munich-q1",
         type: "single",
         prompt: "Welche drei Dinge kennt Mia vor der Reise über München?",
-        options: ["Bayern München, Brezeln und Oktoberfest", "Anime, Sushi und Tempel", "Hollywood, Strände und Palmen", "Minecraft, Höhlen und Diamanten"],
+        options: ["Bayern München, Brezeln und Oktoberfest", "Bayern München, U-Bahn und Eisbach", "Marienplatz, Käsespätzle und Trams", "Brezeln, Englischer Garten und Schulvereine"],
         answer: "Bayern München, Brezeln und Oktoberfest"
       },
       {
         id: "munich-q2",
         type: "multi",
         prompt: "Welche Verkehrsmittel sieht Mia in München?",
-        options: ["U-Bahn", "S-Bahn", "Tram", "Raumschiff"],
+        options: ["U-Bahn", "S-Bahn", "Tram", "Mietauto ihrer Familie"],
         answer: "U-Bahn; S-Bahn; Tram"
       },
       {
         id: "munich-q3",
         type: "single",
         prompt: "Warum filmt Mia nicht einfach fremde Menschen direkt?",
-        options: ["Sie möchte höflich sein", "Ihre Kamera ist kaputt", "Sie darf keine Gebäude filmen", "Sie hasst YouTube"],
+        options: ["Sie möchte höflich sein", "Sie möchte nur alte Gebäude zeigen", "Ben verbietet ihr alle Videos", "Sie filmt nur für ihre Schule"],
         answer: "Sie möchte höflich sein"
       },
       {
         id: "munich-q4",
         type: "single",
         prompt: "Was findet Mia im Englischen Garten besonders spannend?",
-        options: ["Die Surfer an der Eisbachwelle", "Ein Basketballspiel", "Einen Vulkan", "Eine Minecraft-Ausstellung"],
+        options: ["Die Surfer an der Eisbachwelle", "Die vielen Fußballtrikots", "Die Schulklasse am Brunnen", "Die Tageskarte für die U-Bahn"],
         answer: "Die Surfer an der Eisbachwelle"
       },
       {
         id: "munich-q5",
         type: "single",
         prompt: "Was erzählt Ben über Jugendliche in München?",
-        options: ["Viele fahren mit U-Bahn oder Fahrrad", "Alle fahren nur mit dem Auto", "Niemand macht Sport", "Alle bleiben immer zu Hause"],
+        options: ["Viele fahren mit U-Bahn oder Fahrrad", "Viele fahren selbst mit dem Auto zur Schule", "Die meisten spielen für die Schule Fußball", "Jugendliche treffen Freunde nur online"],
         answer: "Viele fahren mit U-Bahn oder Fahrrad"
       },
       {
         id: "munich-q6",
         type: "multi",
         prompt: "Was gehört laut Text zu Mias Eindruck von München?",
-        options: ["Alte Gebäude", "Moderner Verkehr", "Parks", "Wüste"],
+        options: ["Alte Gebäude", "Moderner Verkehr", "Parks", "High-School-Sport als Hauptthema"],
         answer: "Alte Gebäude; Moderner Verkehr; Parks"
       },
       {
         id: "munich-q7",
         type: "single",
         prompt: "Was möchte Mia vielleicht später besuchen?",
-        options: ["Ein Spiel in der Allianz Arena", "Eine Schule in Japan", "Ein Turnier in Monterey", "Ein Clash-Royale-Studio"],
+        options: ["Ein Spiel in der Allianz Arena", "Ein Spiel für Bens Schule", "Ein Oktoberfest-Video mit ihrer Klasse", "Ein Surftraining am Pazifik"],
         answer: "Ein Spiel in der Allianz Arena"
       },
       {
@@ -196,49 +196,49 @@ Zum Schluss fügen sie kleine Dinge hinzu: Straßenschilder, Laternen, Bäume, B
         id: "minecraft-q1",
         type: "single",
         prompt: "Was wollen Jonas und Emma bauen?",
-        options: ["Eine ganze deutsche Stadt", "Nur ein Stadion", "Ein Raumschiff", "Eine Unterwasserbasis"],
+        options: ["Eine ganze deutsche Stadt", "Eine moderne Stadt ohne Altstadt", "Einen deutschen Bahnhof mit Park", "Eine Burg mit wenigen Häusern"],
         answer: "Eine ganze deutsche Stadt"
       },
       {
         id: "minecraft-q2",
         type: "single",
         prompt: "Was steht in der Mitte des Marktplatzes?",
-        options: ["Ein Brunnen", "Ein Vulkan", "Ein Bahnhof", "Ein Kino"],
+        options: ["Ein Brunnen", "Ein Rathaus", "Eine Bäckerei", "Ein Wegweiser"],
         answer: "Ein Brunnen"
       },
       {
         id: "minecraft-q3",
         type: "multi",
         prompt: "Welche Läden bauen Jonas und Emma?",
-        options: ["Bäckerei", "Apotheke", "Buchhandlung", "Flughafen"],
+        options: ["Bäckerei", "Apotheke", "Buchhandlung", "Blumenstand"],
         answer: "Bäckerei; Apotheke; Buchhandlung"
       },
       {
         id: "minecraft-q4",
         type: "single",
         prompt: "Warum bauen sie Fahrradwege?",
-        options: ["Viele Menschen fahren in deutschen Städten Fahrrad", "Fahrräder sind Monster", "Züge dürfen dort nicht fahren", "Die Wege sollen leer bleiben"],
+        options: ["Viele Menschen fahren in deutschen Städten Fahrrad", "Der Bahnhof soll weiter vom Marktplatz weg sein", "Die Altstadt soll breitere Straßen bekommen", "Die Burg soll moderner wirken"],
         answer: "Viele Menschen fahren in deutschen Städten Fahrrad"
       },
       {
         id: "minecraft-q5",
         type: "multi",
         prompt: "Was gehört zur Schule im Text?",
-        options: ["Pausenhof", "Sporthalle", "Kleiner Garten", "Burgmauer"],
+        options: ["Pausenhof", "Sporthalle", "Kleiner Garten", "Fahrradweg im Park"],
         answer: "Pausenhof; Sporthalle; Kleiner Garten"
       },
       {
         id: "minecraft-q6",
         type: "single",
         prompt: "Wo steht die Burg?",
-        options: ["Auf einem Hügel", "Unter dem Bahnhof", "Im Meer", "In der Bäckerei"],
+        options: ["Auf einem Hügel", "Direkt auf dem Marktplatz", "Zwischen Schule und Fahrradständern", "Am Rand des Bahnhofs"],
         answer: "Auf einem Hügel"
       },
       {
         id: "minecraft-q7",
         type: "single",
         prompt: "Was lernt Jonas am Ende?",
-        options: ["Stadtplanung bedeutet mehr als schöne Gebäude", "Man braucht keine Wege", "Alle Häuser müssen gleich sein", "Minecraft ist nur für Profis"],
+        options: ["Stadtplanung bedeutet mehr als schöne Gebäude", "Alte Gebäude dürfen nie neben neue Gebäude", "Eine Stadt braucht vor allem eine große Burg", "Kurze Wege sind weniger wichtig als hohe Häuser"],
         answer: "Stadtplanung bedeutet mehr als schöne Gebäude"
       },
       {
@@ -278,49 +278,49 @@ Für einen Spieler kann Monterey Bay wie eine echte Version einer Entdeckungsrei
         id: "subnautica-q1",
         type: "single",
         prompt: "Welche Stimmung beschreibt der Text am Anfang von Subnautica?",
-        options: ["Wunderschön und gefährlich zugleich", "Langweilig und trocken", "Laut und schulisch", "Schnell und sportlich"],
+        options: ["Wunderschön und gefährlich zugleich", "Ruhig und völlig sicher", "Technisch und ohne Natur", "Realistisch und ohne Fantasie"],
         answer: "Wunderschön und gefährlich zugleich"
       },
       {
         id: "subnautica-q2",
         type: "single",
         prompt: "Was ist Kelp?",
-        options: ["Eine große Braunalge", "Ein Computerspiel", "Ein Fußballverein", "Ein japanisches Gericht"],
+        options: ["Eine große Braunalge", "Ein tiefer Unterwasser-Canyon", "Ein kleiner Fisch im Schutzgebiet", "Ein Sensor für Meeresforschung"],
         answer: "Eine große Braunalge"
       },
       {
         id: "subnautica-q3",
         type: "multi",
         prompt: "Welche Tiere oder Lebewesen werden im Kelp-Kontext genannt?",
-        options: ["Fische", "Krebse", "Seeotter", "Kamele"],
+        options: ["Fische", "Krebse", "Seeotter", "Seevögel"],
         answer: "Fische; Krebse; Seeotter"
       },
       {
         id: "subnautica-q4",
         type: "single",
         prompt: "Warum erforschen Wissenschaftler tiefe Bereiche bei Monterey Bay?",
-        options: ["Sie wollen das Ökosystem verstehen und schützen", "Sie suchen außerirdische Monster", "Sie bauen eine Minecraft-Stadt", "Sie trainieren für Fußball"],
+        options: ["Sie wollen das Ökosystem verstehen und schützen", "Sie wollen dort Spielbasen bauen", "Sie wollen Kelpwälder kleiner machen", "Sie wollen nur schöne Fotos sammeln"],
         answer: "Sie wollen das Ökosystem verstehen und schützen"
       },
       {
         id: "subnautica-q5",
         type: "multi",
         prompt: "Was kann dem Meer laut Text schaden?",
-        options: ["Müll", "Zu warme Meerestemperaturen", "Störungen", "Gute Forschung"],
+        options: ["Müll", "Zu warme Meerestemperaturen", "Störungen", "Schutzgebiete"],
         answer: "Müll; Zu warme Meerestemperaturen; Störungen"
       },
       {
         id: "subnautica-q6",
         type: "single",
         prompt: "Was ist ein wichtiger Unterschied zwischen Spiel und Natur?",
-        options: ["In der Natur haben Handlungen echte Folgen", "Im Spiel ist alles kälter", "In der Natur gibt es keine Regeln", "Im Spiel darf man nicht forschen"],
+        options: ["In der Natur haben Handlungen echte Folgen", "Im Spiel braucht man mehr Geduld als in der Forschung", "In der Natur gibt es keine unbekannten Lebensräume", "Im Spiel sammelt man Daten über viele Jahre"],
         answer: "In der Natur haben Handlungen echte Folgen"
       },
       {
         id: "subnautica-q7",
         type: "single",
         prompt: "Welche Haltung empfiehlt der Text für echte Entdeckungen?",
-        options: ["Geduld, Wissen und Respekt", "Eile, Lärm und Risiko", "Nur Angst", "Nur Technik"],
+        options: ["Geduld, Wissen und Respekt", "Neugier ohne Regeln", "Technik ohne Teamarbeit", "Schnelles Ausprobieren ohne Folgen"],
         answer: "Geduld, Wissen und Respekt"
       },
       {
@@ -364,49 +364,49 @@ Am Ende ist Clash Royale für Leon wie Schach mit Tempo. Man braucht Wissen übe
         id: "clash-q1",
         type: "single",
         prompt: "Was ist laut Text wichtiger als nur schnelles Klicken?",
-        options: ["Planung und Geduld", "Nur Glück", "Ein großes Handy", "Viele Beleidigungen"],
+        options: ["Planung und Geduld", "Immer sofort angreifen", "Nur Lieblingskarten benutzen", "Mehr Schaden akzeptieren als nötig"],
         answer: "Planung und Geduld"
       },
       {
         id: "clash-q2",
         type: "single",
         prompt: "Was machte Leon früher oft falsch?",
-        options: ["Er spielte sofort alle Karten", "Er spielte nie Karten", "Er las nur Bücher", "Er verließ jeden Clan"],
+        options: ["Er spielte sofort alle Karten", "Er wartete immer zu lange mit jeder Karte", "Er verteidigte immer mit zu wenig Elixier", "Er analysierte jedes Spiel zu genau"],
         answer: "Er spielte sofort alle Karten"
       },
       {
         id: "clash-q3",
         type: "multi",
         prompt: "Welche Rollen können Karten in Leons Deck haben?",
-        options: ["Angriff auf den Turm", "Schutz gegen kleine Einheiten", "Stopp gegen starke Bodentruppen", "Deutschhausaufgaben schreiben"],
+        options: ["Angriff auf den Turm", "Schutz gegen kleine Einheiten", "Stopp gegen starke Bodentruppen", "Mehr Lieblingskarten ohne Balance"],
         answer: "Angriff auf den Turm; Schutz gegen kleine Einheiten; Stopp gegen starke Bodentruppen"
       },
       {
         id: "clash-q4",
         type: "single",
         prompt: "Warum braucht ein Deck Balance?",
-        options: ["Damit man auf verschiedene Situationen reagieren kann", "Damit alle Karten gleich aussehen", "Damit man nie verteidigt", "Damit der Gegner gewinnt"],
+        options: ["Damit man auf verschiedene Situationen reagieren kann", "Damit alle Karten möglichst teuer sind", "Damit man nur eine Lieblingsstrategie spielt", "Damit man jeden Schaden akzeptiert"],
         answer: "Damit man auf verschiedene Situationen reagieren kann"
       },
       {
         id: "clash-q5",
         type: "multi",
         prompt: "Welche Fragen stellt Leon nach einer Niederlage?",
-        options: ["Habe ich zu früh angegriffen?", "Habe ich eine Karte falsch gesetzt?", "Hatte ich keine Antwort auf eine Strategie?", "War das Wetter zu kalt?"],
+        options: ["Habe ich zu früh angegriffen?", "Habe ich eine Karte falsch gesetzt?", "Hatte ich keine Antwort auf eine Strategie?", "Hatte mein Gegner zu viel Geduld?"],
         answer: "Habe ich zu früh angegriffen?; Habe ich eine Karte falsch gesetzt?; Hatte ich keine Antwort auf eine Strategie?"
       },
       {
         id: "clash-q6",
         type: "single",
         prompt: "Warum ist ruhig bleiben nützlich?",
-        options: ["Man lernt mehr aus Fehlern", "Man bekommt automatisch mehr Elixier", "Der Gegner darf nicht spielen", "Das Handy wird schneller"],
+        options: ["Man lernt mehr aus Fehlern", "Man gewinnt dadurch jede Runde automatisch", "Man braucht dann keine Deck-Balance", "Man muss keine Karten mehr beobachten"],
         answer: "Man lernt mehr aus Fehlern"
       },
       {
         id: "clash-q7",
         type: "single",
         prompt: "Womit vergleicht der Text Clash Royale am Ende?",
-        options: ["Mit Schach mit Tempo", "Mit einem Museumsbesuch", "Mit Surfen", "Mit Zugfahren"],
+        options: ["Mit Schach mit Tempo", "Mit einem reinen Reaktionstest", "Mit einem Teamtraining im Verein", "Mit einer langen Forschungsexpedition"],
         answer: "Mit Schach mit Tempo"
       },
       {
@@ -450,49 +450,49 @@ Am Ende ist kein Ort einfach besser. Jeder Ort hat Vorteile und Probleme. Wer ve
         id: "japan-q1",
         type: "single",
         prompt: "Welche drei Klischees nennt der Text am Anfang?",
-        options: ["Sushi, Brezeln und Strände", "Fußball, Höhlen und Karten", "Autos, Hunde und Bücher", "Berge, Vulkane und Monde"],
+        options: ["Sushi, Brezeln und Strände", "Reis, Brot und öffentliche Verkehrsmittel", "Schule, Vereine und High School", "Höflichkeit, Autos und Freizeit"],
         answer: "Sushi, Brezeln und Strände"
       },
       {
         id: "japan-q2",
         type: "multi",
         prompt: "Welche Verkehrsmittel nennt der Text für deutsche Städte?",
-        options: ["Busse", "Straßenbahnen", "U-Bahnen", "Raumschiffe"],
+        options: ["Busse", "Straßenbahnen", "U-Bahnen", "Familienautos als Hauptweg"],
         answer: "Busse; Straßenbahnen; U-Bahnen"
       },
       {
         id: "japan-q3",
         type: "single",
         prompt: "Was ist in Kalifornien oft sehr wichtig?",
-        options: ["Das Auto", "Die Burg", "Der Marktplatz", "Der Kelpwald"],
+        options: ["Das Auto", "Die Straßenbahn", "Der Sportverein außerhalb der Schule", "Der pünktliche Stadtzug"],
         answer: "Das Auto"
       },
       {
         id: "japan-q4",
         type: "single",
         prompt: "Wo passieren in Deutschland viele Hobbys laut Text?",
-        options: ["Außerhalb der Schule, zum Beispiel im Verein", "Nur im Klassenzimmer", "Nur im Internet", "Immer im Supermarkt"],
+        options: ["Außerhalb der Schule, zum Beispiel im Verein", "Vor allem in High-School-Teams", "Meistens in japanischen Schulclubs", "Hauptsächlich während des Einkaufens"],
         answer: "Außerhalb der Schule, zum Beispiel im Verein"
       },
       {
         id: "japan-q5",
         type: "multi",
         prompt: "Welche Beispiele nennt der Text für japanische Esskultur?",
-        options: ["Reis", "Nudeln", "Bento", "Brezelpflicht"],
+        options: ["Reis", "Nudeln", "Bento", "Döner"],
         answer: "Reis; Nudeln; Bento"
       },
       {
         id: "japan-q6",
         type: "single",
         prompt: "Wie beschreibt der Text deutsche Höflichkeit?",
-        options: ["Oft direkter", "Immer leise", "Ohne Regeln", "Nur schriftlich"],
+        options: ["Oft direkter", "Meist lockerer als in Kalifornien", "Vor allem durch lange Schulclubs", "Immer ohne klare Meinung"],
         answer: "Oft direkter"
       },
       {
         id: "japan-q7",
         type: "single",
         prompt: "Was lernt man laut Text durch Vergleiche?",
-        options: ["Etwas über andere Länder und das eigene Leben", "Dass ein Ort immer perfekt ist", "Dass Verkehr unwichtig ist", "Dass Schule überall gleich ist"],
+        options: ["Etwas über andere Länder und das eigene Leben", "Dass Deutschland, Japan und Kalifornien gleich funktionieren", "Dass nur Klischees wichtig sind", "Dass Selbstständigkeit überall vom Auto abhängt"],
         answer: "Etwas über andere Länder und das eigene Leben"
       },
       {
@@ -581,12 +581,10 @@ function saveState() {
 }
 
 function mergeSeededAssignments(assignments) {
-  const assignmentsById = new Map(assignments.map((assignment) => [assignment.id, assignment]));
-  const mergedSeeds = SEEDED_ASSIGNMENTS.map((assignment) => assignmentsById.get(assignment.id) || assignment);
   const customAssignments = assignments.filter(
     (assignment) => !SEEDED_ASSIGNMENTS.some((seed) => seed.id === assignment.id)
   );
-  return [...mergedSeeds, ...customAssignments];
+  return [...SEEDED_ASSIGNMENTS, ...customAssignments];
 }
 
 function wireTabs() {
@@ -884,10 +882,13 @@ function applyIncomingAssignment() {
   const assignment = parseAssignmentFromHash();
   if (!assignment) return;
 
-  state.assignments = [
-    assignment,
-    ...state.assignments.filter((item) => item.code !== assignment.code && item.id !== assignment.id)
-  ];
+  const seededAssignment = SEEDED_ASSIGNMENTS.find((item) => item.id === assignment.id);
+  if (!seededAssignment) {
+    state.assignments = [
+      assignment,
+      ...state.assignments.filter((item) => item.code !== assignment.code && item.id !== assignment.id)
+    ];
+  }
   state.activeAssignmentId = assignment.id;
   saveState();
   els.studentCode.value = assignment.code;
@@ -1000,7 +1001,7 @@ function renderSession(assignment) {
         </div>
         <div class="session-actions">
           <span id="session-timer" class="timer">--:--</span>
-          <button class="secondary-button" id="finish-session" type="button">Submit</button>
+          <button class="secondary-button submit-session" id="finish-session" type="button" disabled>Submit</button>
         </div>
       </div>
       <p id="session-warning" class="session-warning hidden"></p>
@@ -1011,7 +1012,7 @@ function renderSession(assignment) {
         <section class="question-runner" aria-label="Questions">
           <div class="runner-card">
             ${questions.map((question, index) => renderQuestion(question, index)).join("")}
-            <button class="primary-button" id="finish-session-bottom" type="button">Submit answers</button>
+            <button class="primary-button submit-session" id="finish-session-bottom" type="button" disabled>Submit answers</button>
           </div>
         </section>
       </div>
@@ -1021,14 +1022,15 @@ function renderSession(assignment) {
   els.activeSession.querySelector("#finish-session").addEventListener("click", () => finishSession("submitted"));
   els.activeSession.querySelector("#finish-session-bottom").addEventListener("click", () => finishSession("submitted"));
   els.activeSession.querySelectorAll("[data-question-id]").forEach((field) => {
-    field.addEventListener("change", collectSessionAnswers);
-    field.addEventListener("input", collectSessionAnswers);
+    field.addEventListener("change", syncSessionProgress);
+    field.addEventListener("input", syncSessionProgress);
     field.addEventListener("paste", (event) => {
       event.preventDefault();
       logSessionEvent("paste-blocked", "Paste into answer field blocked");
       renderSessionWarning("Pasting answers is blocked in this session.");
     });
   });
+  syncSessionProgress();
 }
 
 function renderPassage(text) {
@@ -1049,6 +1051,7 @@ function renderQuestion(question, index) {
         <h3>${escapeHtml(question.prompt)}</h3>
         ${minWordsText}
         <textarea data-question-id="${question.id}" data-min-words="${question.minWords || ""}" rows="5" placeholder="Answer in your own words"></textarea>
+        ${question.minWords ? `<p class="word-count is-low" data-word-count-for="${question.id}">0/${question.minWords} words</p>` : ""}
       </article>
     `;
   }
@@ -1092,6 +1095,47 @@ function collectSessionAnswers() {
   activeSession.answers = answers;
 }
 
+function syncSessionProgress() {
+  collectSessionAnswers();
+  updateWordCounters();
+
+  const assignment = state.assignments.find((item) => item.id === activeSession?.assignmentId);
+  const ready = assignment ? isSessionComplete(assignment, activeSession.answers) : false;
+  els.activeSession.querySelectorAll(".submit-session").forEach((button) => {
+    button.disabled = !ready;
+  });
+}
+
+function updateWordCounters() {
+  els.activeSession.querySelectorAll("[data-min-words]").forEach((field) => {
+    const minWords = Number(field.dataset.minWords) || 0;
+    if (!minWords) return;
+
+    const counter = els.activeSession.querySelector(`[data-word-count-for="${field.dataset.questionId}"]`);
+    if (!counter) return;
+
+    const wordCount = countWords(field.value);
+    counter.textContent = `${wordCount}/${minWords} words`;
+    counter.classList.toggle("is-low", wordCount < minWords);
+    counter.classList.toggle("is-met", wordCount >= minWords);
+  });
+}
+
+function isSessionComplete(assignment, answers) {
+  return assignment.questions.every((question) => {
+    if (question.type === "short") {
+      return !question.minWords || countWords(answers[question.id] || "") >= question.minWords;
+    }
+
+    const answer = answers[question.id];
+    if (question.type === "multi") {
+      return Array.isArray(answer) && answer.length > 0;
+    }
+
+    return Boolean(answer);
+  });
+}
+
 function tickTimer() {
   if (!activeSession) return;
   const remaining = Math.max(0, activeSession.endsAt - Date.now());
@@ -1124,7 +1168,7 @@ function finishSession(reason) {
     ...activeSession,
     finishedAt: new Date().toISOString(),
     finishReason: reason,
-    score: assignment ? gradeSession(assignment, activeSession.answers) : null
+    score: assignment ? gradeSession(getGradingAssignment(assignment), activeSession.answers) : null
   };
 
   state.submissions.unshift(submission);
@@ -1139,6 +1183,10 @@ function finishSession(reason) {
   `;
   els.sessionStatus.textContent = reason === "timeout" ? "Time expired. Session submitted." : "Session submitted.";
   renderResults();
+}
+
+function getGradingAssignment(assignment) {
+  return SEEDED_ASSIGNMENTS.find((item) => item.id === assignment.id) || assignment;
 }
 
 function getWordCountError(assignment, answers) {

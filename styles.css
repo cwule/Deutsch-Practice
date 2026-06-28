@@ -278,10 +278,24 @@ textarea:focus {
 .assignment-meta,
 .result-meta,
 .status-box,
-.empty-state {
+.empty-state,
+.word-count {
   color: var(--muted);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.86rem;
+}
+
+.word-count {
+  margin-top: -6px;
+  font-weight: 800;
+}
+
+.word-count.is-low {
+  color: var(--mark);
+}
+
+.word-count.is-met {
+  color: var(--accent-dark);
 }
 
 .assignment-actions,
