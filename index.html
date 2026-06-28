@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DaF Reading Guard</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">DaF Reading Guard</p>
+        <h1>Reading assignments with copy friction</h1>
+      </div>
+      <nav class="mode-tabs" aria-label="App mode">
+        <button class="tab is-active" data-mode="teacher" type="button">Teacher</button>
+        <button class="tab" data-mode="student" type="button">Student</button>
+        <button class="tab" data-mode="results" type="button">Results</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="teacher-view" class="view is-active" aria-labelledby="teacher-title">
+        <div class="split-layout">
+          <form id="assignment-form" class="panel editor-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Teacher desk</p>
+                <h2 id="teacher-title">Create assignment</h2>
+              </div>
+              <button class="ghost-button" id="reset-form" type="button">New</button>
+            </div>
+
+            <label>
+              Assignment title
+              <input id="assignment-title" required maxlength="90" placeholder="Zum Beispiel: Der Rhein und seine Städte">
+            </label>
+
+            <div class="form-grid">
+              <label>
+                Time limit
+                <input id="time-limit" type="number" min="3" max="180" value="20">
+                <span class="hint">Minutes</span>
+              </label>
+              <label>
+                Passage mode
+                <select id="passage-mode">
+                  <option value="protected">Protected text blocks</option>
+                  <option value="image">Image-like page mode</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              German reading text
+              <textarea id="passage-text" required rows="13" spellcheck="false" placeholder="Paste or type the reading passage here. Students see this in the restricted reader."></textarea>
+            </label>
+
+            <section class="question-editor" aria-labelledby="question-editor-title">
+              <div class="inline-heading">
+                <h3 id="question-editor-title">Questions</h3>
+                <button class="secondary-button" id="add-question" type="button">Add question</button>
+              </div>
+              <div id="questions-list" class="questions-list"></div>
+            </section>
+
+            <button class="primary-button" type="submit">Publish assignment</button>
+          </form>
+
+          <aside class="panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Published</p>
+                <h2>Assignments</h2>
+              </div>
+              <button class="ghost-button danger" id="clear-data" type="button">Clear all</button>
+            </div>
+            <div id="assignment-list" class="item-list"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="student-view" class="view" aria-labelledby="student-title">
+        <div class="student-shell">
+          <aside class="panel join-panel">
+            <p class="eyebrow">Student session</p>
+            <h2 id="student-title">Start reading</h2>
+            <label>
+              Assignment code
+              <input id="student-code" maxlength="8" autocomplete="off" placeholder="ABC123">
+            </label>
+            <label>
+              Student name
+              <input id="student-name" maxlength="80" autocomplete="name" placeholder="Name">
+            </label>
+            <button class="primary-button" id="start-session" type="button">Start session</button>
+            <div id="session-status" class="status-box" role="status"></div>
+          </aside>
+
+          <section id="active-session" class="reader-workspace" aria-live="polite">
+            <div class="empty-state">
+              <p>Choose an assignment code to open the protected reader.</p>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="results-view" class="view" aria-labelledby="results-title">
+        <div class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Submissions</p>
+              <h2 id="results-title">Session results</h2>
+            </div>
+            <button class="secondary-button" id="export-results" type="button">Export JSON</button>
+          </div>
+          <div id="results-list" class="item-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <template id="question-template">
+      <article class="question-card">
+        <div class="question-card-header">
+          <strong class="question-number"></strong>
+          <button class="icon-button remove-question" type="button" aria-label="Remove question">x</button>
+        </div>
+        <label>
+          Question
+          <input class="question-prompt" required placeholder="Was steht im Text?">
+        </label>
+        <label>
+          Type
+          <select class="question-type">
+            <option value="single">Multiple choice</option>
+            <option value="multi">Multi-select</option>
+            <option value="short">Short answer</option>
+          </select>
+        </label>
+        <label class="options-field">
+          Options
+          <textarea class="question-options" rows="4" placeholder="One option per line"></textarea>
+          <span class="hint">For multiple choice and multi-select questions.</span>
+        </label>
+        <label>
+          Correct answer
+          <input class="question-answer" placeholder="Exact option text or short answer">
+          <span class="hint">Use semicolons for several correct multi-select options.</span>
+        </label>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
