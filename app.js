@@ -1,4 +1,7 @@
 const STORAGE_KEY = "daf-reading-guard-state";
+const SUPABASE_URL = "https://trbmnjsjgwxphckzvhny.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_VYFvS3c2TP_Pn_lvXW1bhA_-srOaz-y";
+const supabaseClient = window.supabase?.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
 const SEEDED_ASSIGNMENTS = [
   {
@@ -517,6 +520,9 @@ let state = loadState();
 let editingId = null;
 let activeSession = null;
 let timerHandle = null;
+let linkedAssignmentId = null;
+let remoteSubmissions = [];
+let isFinishingSession = false;
 
 const els = {
   tabs: document.querySelectorAll(".tab"),
@@ -538,7 +544,12 @@ const els = {
   startSession: document.querySelector("#start-session"),
   sessionStatus: document.querySelector("#session-status"),
   activeSession: document.querySelector("#active-session"),
+  teacherLogin: document.querySelector("#teacher-login"),
+  teacherEmail: document.querySelector("#teacher-email"),
+  teacherPassword: document.querySelector("#teacher-password"),
+  loginStatus: document.querySelector("#login-status"),
   resultsList: document.querySelector("#results-list"),
+  refreshResults: document.querySelector("#refresh-results"),
   exportResults: document.querySelector("#export-results")
 };
 
@@ -549,6 +560,7 @@ function initialize() {
   wireTeacher();
   wireStudent();
   wireResults();
+  wireStorageSync();
   applyIncomingAssignment();
   resetForm();
   renderAssignments();
@@ -580,6 +592,18 @@ function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
+function wireStorageSync() {
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    state = loadState();
+    renderAssignments();
+    if (!activeSession) {
+      renderStudentEntry();
+    }
+    renderResults();
+  });
+}
+
 function mergeSeededAssignments(assignments) {
   const customAssignments = assignments.filter(
     (assignment) => !SEEDED_ASSIGNMENTS.some((seed) => seed.id === assignment.id)
@@ -593,10 +617,10 @@ function wireTabs() {
   });
 }
 
-function setMode(mode) {
+async function setMode(mode) {
   els.tabs.forEach((tab) => tab.classList.toggle("is-active", tab.dataset.mode === mode));
   els.views.forEach((view) => view.classList.toggle("is-active", view.id === `${mode}-view`));
-  if (mode === "results") renderResults();
+  if (mode === "results") await renderResults();
 }
 
 function wireTeacher() {
@@ -669,8 +693,14 @@ function wireStudent() {
 }
 
 function wireResults() {
+  els.teacherLogin.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await signInTeacher();
+  });
+  els.refreshResults.addEventListener("click", () => renderResults());
   els.exportResults.addEventListener("click", () => {
-    const blob = new Blob([JSON.stringify(state.submissions, null, 2)], { type: "application/json" });
+    const submissions = remoteSubmissions.length ? remoteSubmissions : state.submissions;
+    const blob = new Blob([JSON.stringify(submissions, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
@@ -678,6 +708,31 @@ function wireResults() {
     link.click();
     URL.revokeObjectURL(url);
   });
+}
+
+async function signInTeacher() {
+  if (!supabaseClient) {
+    els.loginStatus.textContent = "Supabase client did not load.";
+    return;
+  }
+
+  const email = els.teacherEmail.value.trim();
+  const password = els.teacherPassword.value;
+  if (!email || !password) {
+    els.loginStatus.textContent = "Enter teacher email and password.";
+    return;
+  }
+
+  els.loginStatus.textContent = "Signing in...";
+  const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+  if (error) {
+    els.loginStatus.textContent = error.message;
+    return;
+  }
+
+  els.teacherPassword.value = "";
+  els.loginStatus.textContent = "Signed in. Loading shared results...";
+  await renderResults();
 }
 
 function blockIfSessionActive(event) {
@@ -882,15 +937,15 @@ function applyIncomingAssignment() {
   const assignment = parseAssignmentFromHash();
   if (!assignment) return;
 
+  linkedAssignmentId = assignment.id;
   const seededAssignment = SEEDED_ASSIGNMENTS.find((item) => item.id === assignment.id);
   if (!seededAssignment) {
     state.assignments = [
       assignment,
       ...state.assignments.filter((item) => item.code !== assignment.code && item.id !== assignment.id)
     ];
+    saveState();
   }
-  state.activeAssignmentId = assignment.id;
-  saveState();
   els.studentCode.value = assignment.code;
 }
 
@@ -959,6 +1014,7 @@ function startStudentSession() {
     answers: {},
     events: []
   };
+  isFinishingSession = false;
 
   els.sessionStatus.textContent = `Session started for ${studentName}.`;
   renderSession(assignment);
@@ -971,6 +1027,11 @@ function startStudentSession() {
 }
 
 function getStudentAssignment() {
+  if (linkedAssignmentId) {
+    const linkedAssignment = state.assignments.find((item) => item.id === linkedAssignmentId);
+    if (linkedAssignment) return linkedAssignment;
+  }
+
   const activeAssignment = state.assignments.find((item) => item.id === state.activeAssignmentId);
   if (activeAssignment) return activeAssignment;
 
@@ -1149,14 +1210,16 @@ function tickTimer() {
   }
 }
 
-function finishSession(reason) {
-  if (!activeSession) return;
+async function finishSession(reason) {
+  if (!activeSession || isFinishingSession) return;
+  isFinishingSession = true;
   const assignment = state.assignments.find((item) => item.id === activeSession.assignmentId);
   collectSessionAnswers();
 
   if (reason !== "timeout" && assignment) {
     const wordError = getWordCountError(assignment, activeSession.answers);
     if (wordError) {
+      isFinishingSession = false;
       renderSessionWarning(wordError);
       return;
     }
@@ -1173,12 +1236,14 @@ function finishSession(reason) {
 
   state.submissions.unshift(submission);
   saveState();
+  const remoteSaved = await saveSubmissionRemote(submission);
   activeSession = null;
+  isFinishingSession = false;
   timerHandle = null;
   document.exitFullscreen?.().catch(() => {});
   els.activeSession.innerHTML = `
     <div class="empty-state">
-      <p>Answers submitted. The teacher can review them in Results.</p>
+      <p>${remoteSaved ? "Answers submitted to the teacher." : "Answers saved locally. Remote submission failed."}</p>
     </div>
   `;
   els.sessionStatus.textContent = reason === "timeout" ? "Time expired. Session submitted." : "Session submitted.";
@@ -1187,6 +1252,29 @@ function finishSession(reason) {
 
 function getGradingAssignment(assignment) {
   return SEEDED_ASSIGNMENTS.find((item) => item.id === assignment.id) || assignment;
+}
+
+async function saveSubmissionRemote(submission) {
+  if (!supabaseClient) return false;
+
+  const { error } = await supabaseClient.from("submissions").insert({
+    assignment_id: submission.assignmentId,
+    assignment_title: submission.assignmentTitle,
+    student_name: submission.studentName,
+    started_at: submission.startedAt,
+    finished_at: submission.finishedAt,
+    finish_reason: submission.finishReason,
+    answers: submission.answers,
+    score: submission.score,
+    events: submission.events
+  });
+
+  if (error) {
+    console.error("Remote submission failed", error);
+    return false;
+  }
+
+  return true;
 }
 
 function getWordCountError(assignment, answers) {
@@ -1258,13 +1346,15 @@ function logSessionEvent(type, detail) {
   });
 }
 
-function renderResults() {
-  if (!state.submissions.length) {
+async function renderResults() {
+  const submissions = await getResultsForDisplay();
+  if (submissions === null) return;
+  if (!submissions.length) {
     els.resultsList.innerHTML = `<div class="empty-state"><p>No submissions yet.</p></div>`;
     return;
   }
 
-  els.resultsList.innerHTML = state.submissions
+  els.resultsList.innerHTML = submissions
     .map((submission) => {
       const scoreText = submission.score
         ? `${submission.score.earned}/${submission.score.possible} auto-graded`
@@ -1282,6 +1372,54 @@ function renderResults() {
       `;
     })
     .join("");
+}
+
+async function getResultsForDisplay() {
+  if (!supabaseClient) {
+    els.teacherLogin.classList.add("hidden");
+    return state.submissions;
+  }
+
+  const {
+    data: { session }
+  } = await supabaseClient.auth.getSession();
+
+  if (!session) {
+    remoteSubmissions = [];
+    els.teacherLogin.classList.remove("hidden");
+    els.resultsList.innerHTML = `<div class="empty-state"><p>Sign in to load shared classroom results.</p></div>`;
+    return null;
+  }
+
+  els.teacherLogin.classList.add("hidden");
+  const { data, error } = await supabaseClient
+    .from("submissions")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    els.teacherLogin.classList.remove("hidden");
+    els.loginStatus.textContent = error.message;
+    return state.submissions;
+  }
+
+  remoteSubmissions = data.map(normalizeRemoteSubmission);
+  return remoteSubmissions;
+}
+
+function normalizeRemoteSubmission(row) {
+  return {
+    id: row.id,
+    assignmentId: row.assignment_id,
+    assignmentTitle: row.assignment_title,
+    studentName: row.student_name,
+    startedAt: row.started_at,
+    finishedAt: row.finished_at || row.created_at,
+    finishReason: row.finish_reason || "submitted",
+    answers: row.answers || {},
+    score: row.score,
+    events: row.events || []
+  };
 }
 
 function renderResultDetails(submission) {

@@ -112,8 +112,23 @@
               <p class="eyebrow">Submissions</p>
               <h2 id="results-title">Session results</h2>
             </div>
-            <button class="secondary-button" id="export-results" type="button">Export JSON</button>
+            <div class="result-actions">
+              <button class="secondary-button" id="refresh-results" type="button">Refresh</button>
+              <button class="secondary-button" id="export-results" type="button">Export JSON</button>
+            </div>
           </div>
+          <form id="teacher-login" class="login-panel">
+            <label>
+              Teacher email
+              <input id="teacher-email" type="email" autocomplete="email" placeholder="teacher@example.com">
+            </label>
+            <label>
+              Password
+              <input id="teacher-password" type="password" autocomplete="current-password" placeholder="Password">
+            </label>
+            <button class="primary-button" type="submit">Sign in for shared results</button>
+            <p id="login-status" class="status-box" role="status"></p>
+          </form>
           <div id="results-list" class="item-list"></div>
         </div>
       </section>
@@ -150,6 +165,7 @@
       </article>
     </template>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="app.js" defer></script>
   </body>
 </html>

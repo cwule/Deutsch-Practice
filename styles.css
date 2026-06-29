@@ -259,6 +259,19 @@ textarea:focus {
   padding: 16px;
 }
 
+.login-panel {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 16px;
+}
+
+.login-panel label {
+  margin-bottom: 0;
+}
+
 .question-card-header {
   margin-bottom: 12px;
   color: var(--accent-dark);
